@@ -116,6 +116,7 @@ function Container({ selectedType }) {
                       }
                     >
                       <Card.Meta
+                        onClick={() => showModal(pokemon)}
                         title={`${pokemon.name.toUpperCase()}`}
                         description={`Type: ${pokemon.type}`}
                       />
@@ -170,7 +171,7 @@ function Container({ selectedType }) {
                   <Col span={12} style={{ padding: "0 0.5rem" }}>
                     {selectedPokemon.stats.map((stat, index) => (
                       <div key={index}>
-                        <strong>{stat.name.toUpperCase}</strong>
+                        <strong>{stat.name.toUpperCase()}</strong>
                         <Progress percent={stat.value} />
                       </div>
                     ))}
