@@ -1,0 +1,6 @@
+.site_card_wrapper {
+  display: flex;
+  justify-content: center;
+
+  /* background-color: red; */
+}

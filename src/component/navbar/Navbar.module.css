@@ -1,0 +1,60 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  border-bottom: 0.01rem solid grey;
+  box-shadow: 0px 0px 5px gray;
+}
+
+.navbar h2 {
+  display: none;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  overflow: auto;
+  gap: 1rem;
+}
+
+.searchbar {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.option h2 {
+  display: block;
+  color: blue;
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    height: auto;
+  }
+
+  .navbar h2 {
+    display: block;
+    color: blue;
+    text-decoration: underline;
+  }
+
+  .option h2 {
+    display: none;
+  }
+
+  .option {
+    width: auto;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .searchbar {
+    width: auto;
+    margin-bottom: 0;
+  }
+}
