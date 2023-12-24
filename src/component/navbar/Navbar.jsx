@@ -1,16 +1,18 @@
-import { DownOutlined, UserOutlined } from "@ant-design/icons";
+import { DownOutlined } from "@ant-design/icons";
 import style from "./Navbar.module.css";
 
 import { Button, Dropdown, Input, Space, message } from "antd";
 const { Search } = Input;
 
-const Navbar = ({ onSearch, setSelectedType }) => {
+const Navbar = ({ onSearch, setSelectedType, selectedType }) => {
   const handleMenuClick = (e) => {
     let selectedLabel = items.find((item) => item.key === e.key)?.label;
     if (selectedLabel === "Select") {
       selectedLabel = "";
     }
-    message.success(`Filtering by type: ${selectedLabel}`);
+    message.success(
+      `Filtering by type: ${selectedLabel ? selectedLabel : "None"}`
+    );
     setSelectedType(selectedLabel);
   };
 
@@ -67,7 +69,6 @@ const Navbar = ({ onSearch, setSelectedType }) => {
   };
 
   const handleSearch = (value) => {
-    console.log(value);
     if (value !== undefined && value !== null) {
       onSearch(value.toLowerCase());
     } else {
@@ -96,7 +97,7 @@ const Navbar = ({ onSearch, setSelectedType }) => {
         <Dropdown menu={menuProps}>
           <Button>
             <Space>
-              Filter
+              {selectedType ? selectedType : "Filter"}
               <DownOutlined />
             </Space>
           </Button>

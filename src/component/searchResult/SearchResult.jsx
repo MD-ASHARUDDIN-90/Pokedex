@@ -33,7 +33,6 @@ function SearchResults({ searchTerm }) {
               }
             })
             .catch((error) => {
-              console.log(`Using fallback image for Pokemon: ${res.data.name}`);
               return "https://i.pinimg.com/474x/a9/9c/70/a99c70aa145259ee5c2865cfdcbebb5c--sticker.jpg"; // Replace with your fallback image URL
             })
             .then((imageUrl) => {
@@ -42,14 +41,11 @@ function SearchResults({ searchTerm }) {
             });
         })
         .catch((error) => {
-          console.log(error);
           setPokemon(null);
           setLoading(false);
         });
     }
   }, [searchTerm]);
-
-  console.log(selectedPokemon);
 
   return (
     <>

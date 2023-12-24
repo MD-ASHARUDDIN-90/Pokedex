@@ -17,7 +17,11 @@ function App() {
           backgroundColor: "white",
         }}
       >
-        <Navbar onSearch={setSearchTerm} setSelectedType={setSelectedType} />
+        <Navbar
+          onSearch={setSearchTerm}
+          selectedType={selectedType}
+          setSelectedType={setSelectedType}
+        />
       </div>
       <div>
         {searchTerm ? (

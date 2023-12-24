@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Button, Card, Col, Modal, Progress, Row, Spin } from "antd";
 import style from "./Container.module.css";
 function Container({ selectedType }) {
-  console.log("selectContainer", selectedType);
   const [isLoading, setIsLoading] = useState(false);
   const [showMoreLoading, setShowMoreLoading] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -29,7 +28,6 @@ function Container({ selectedType }) {
       setNextUrl(res.data.next ? res.data.next : null); // Update the next URL
       const promises = res.data.results.map((pokemon) =>
         axios.get(pokemon.url).then((res) => {
-          console.log(`Fetched details for Pokemon: ${res.data.name}`);
           return res.data;
         })
       );
@@ -45,7 +43,6 @@ function Container({ selectedType }) {
               }
             })
             .catch((error) => {
-              console.log(`Using fallback image for Pokemon: ${data.name}`);
               return "https://i.pinimg.com/474x/a9/9c/70/a99c70aa145259ee5c2865cfdcbebb5c--sticker.jpg"; // Replace with your fallback image URL
             })
             .then((imageUrl) => ({
@@ -67,7 +64,6 @@ function Container({ selectedType }) {
             }));
         });
         Promise.all(pokemonData).then((pokemon) => {
-          console.log("pokemon", pokemon);
           setPokemon((prevPokemon) => [...prevPokemon, ...pokemon]); // Merge with previous data
           setIsLoading(false);
           setShowMoreLoading(false);
